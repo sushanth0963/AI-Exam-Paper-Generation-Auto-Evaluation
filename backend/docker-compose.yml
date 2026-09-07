@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+
+  backend:
+    build: .
+    container_name: ai_exam_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    env_file:
+      - .env
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  postgres:
+    image: postgres:16
+    container_name: ai_exam_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ai_exam_db
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    container_name: ai_exam_redis
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: ai_exam_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
