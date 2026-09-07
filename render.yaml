@@ -21,9 +21,9 @@ services:
       - key: OPENAI_API_KEY
         sync: false
       - key: CORS_ORIGINS
-        value: https://ai-exam-frontend.onrender.com
+        value: https://ai-exam-paper-generation-auto-evaluation-mjwv.onrender.com
       - key: FRONTEND_URL
-        value: https://ai-exam-frontend.onrender.com
+        value: https://ai-exam-paper-generation-auto-evaluation-mjwv.onrender.com
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: "60"
 
@@ -34,7 +34,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        value: https://ai-exam-api.onrender.com
+        value: https://ai-exam-paper-generation-auto-evaluation.onrender.com
     routes:
       - type: rewrite
         source: /*
