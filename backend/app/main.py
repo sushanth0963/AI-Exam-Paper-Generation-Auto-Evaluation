@@ -68,6 +68,9 @@ allow_origins = [orig.strip() for orig in origins_env.split(",") if orig.strip()
 frontend_url = os.getenv("FRONTEND_URL", "").strip()
 if frontend_url and frontend_url not in allow_origins:
     allow_origins.append(frontend_url)
+production_frontend_url = "https://ai-exam-paper-generation-auto-evaluation-mjwv.onrender.com"
+if production_frontend_url not in allow_origins:
+    allow_origins.append(production_frontend_url)
 if not allow_origins:
     allow_origins = [
         "http://localhost:5173",
