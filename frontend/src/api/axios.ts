@@ -6,7 +6,7 @@ import axios from "axios";
  * Redirects to login on 401 Unauthorized.
  */
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000",
+  baseURL: import.meta.env.VITE_API_URL || "https://ai-exam-paper-generation-auto-evaluation.onrender.com",
   headers: { "Content-Type": "application/json" },
 });
 
